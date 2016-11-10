@@ -28,10 +28,19 @@ void push(Stack *stack, char *value)
 	}
 
 	node->value = value;
+	node->next = stack->top;
 	stack->top = node;
 }
 
 char *pop(Stack *stack)
 {
-	return stack->top->value;
+	Node *tempNode;
+	char *value;
+
+	tempNode = stack->top;
+	value = tempNode->value;
+	stack->top = tempNode->next;
+	free(tempNode);
+
+	return value;
 }

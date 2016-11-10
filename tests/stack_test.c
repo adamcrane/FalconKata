@@ -12,6 +12,17 @@ START_TEST(test_can_push_and_pop_item_from_stack)
 }
 END_TEST
 
+START_TEST(test_can_push_and_pop_two_items_from_stack)
+{
+	Stack *stack;
+	initialize_stack(stack);
+	push(stack, "a");
+	push(stack, "b");
+	ck_assert_str_eq(pop(stack), "b");
+	ck_assert_str_eq(pop(stack), "a");
+}
+END_TEST
+
 Suite * make_stack_building_suite(void)
 {
 	Suite *s;
@@ -22,6 +33,7 @@ Suite * make_stack_building_suite(void)
 	tc_core = tcase_create("Core");
 
 	tcase_add_test(tc_core, test_can_push_and_pop_item_from_stack);
+	tcase_add_test(tc_core, test_can_push_and_pop_two_items_from_stack);
 	suite_add_tcase(s, tc_core);
 
 	return s;
