@@ -23,6 +23,15 @@ START_TEST(test_can_push_and_pop_two_items_from_stack)
 }
 END_TEST
 
+START_TEST(doesnt_blow_up_when_popping_an_empty_stack)
+{
+	char *value;
+	Stack *stack;
+	initialize_stack(stack);
+	value = pop(stack);
+}
+END_TEST
+
 Suite * make_stack_building_suite(void)
 {
 	Suite *s;
@@ -34,6 +43,7 @@ Suite * make_stack_building_suite(void)
 
 	tcase_add_test(tc_core, test_can_push_and_pop_item_from_stack);
 	tcase_add_test(tc_core, test_can_push_and_pop_two_items_from_stack);
+	tcase_add_test(tc_core, doesnt_blow_up_when_popping_an_empty_stack);
 	suite_add_tcase(s, tc_core);
 
 	return s;

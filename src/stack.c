@@ -37,6 +37,14 @@ char *pop(Stack *stack)
 	Node *tempNode;
 	char *value;
 
+	if (stack->top == NULL)
+	{
+		free(tempNode);
+		free(value);
+		
+		exit(0);
+	}
+
 	tempNode = stack->top;
 	value = tempNode->value;
 	stack->top = tempNode->next;
