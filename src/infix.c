@@ -19,6 +19,11 @@ Infix *init_with_infix_string(char *infix_string)
 	return I;
 }
 
-char *convert_to_rpn(Infix *Infix){
+char *convert_to_rpn(Infix *infix){
+	for(int i = 0; infix->representation[i] != '\0'; i++)
+	{
+
+	}
+
 	return "ab+";
 }
