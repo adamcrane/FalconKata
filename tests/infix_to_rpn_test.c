@@ -4,7 +4,7 @@
 
 START_TEST(test_hello_world)
 {
-	ck_assert_int_eq(5,5);
+	ck_assert(1);
 }
 END_TEST
 
