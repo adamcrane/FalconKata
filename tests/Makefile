@@ -1,2 +1,5 @@
 testsmake: infix_to_rpn_test.c
-	gcc -o testsmake infix_to_rpn_test.c `pkg-config --cflags --libs check`
+	gcc -o tests infix_to_rpn_test.c ../src/infix.c `pkg-config --cflags --libs check`
+
+clean:
+	@rm -f tests

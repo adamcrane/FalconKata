@@ -1,10 +1,13 @@
 #include <check.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "../src/infix.h"
 
-START_TEST(test_hello_world)
+START_TEST(converts_simple_addition)
 {
-	ck_assert(1);
+	Infix * infix;
+	infix = init_with_infix_string("a+b");
+	ck_assert_str_eq(convert_to_rpn(infix), "ab+");
 }
 END_TEST
 
@@ -17,7 +20,7 @@ Suite * infix_to_rpn_suite(void)
 
 	tc_core = tcase_create("Core");
 
-	tcase_add_test(tc_core, test_hello_world);
+	tcase_add_test(tc_core, converts_simple_addition);
 	suite_add_tcase(s, tc_core);
 
 	return s;
