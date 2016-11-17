@@ -5,30 +5,26 @@
 
 START_TEST(test_can_push_and_pop_item_from_stack)
 {
-	Stack *stack;
-	initialize_stack(stack);
-	push(stack, "a");
-	ck_assert_str_eq(pop(stack), "a");
+	initialize_stack();
+	push("a");
+	ck_assert_str_eq(pop(), "a");
 }
 END_TEST
 
 START_TEST(test_can_push_and_pop_two_items_from_stack)
 {
-	Stack *stack;
-	initialize_stack(stack);
-	push(stack, "a");
-	push(stack, "b");
-	ck_assert_str_eq(pop(stack), "b");
-	ck_assert_str_eq(pop(stack), "a");
+	initialize_stack();
+	push("a");
+	push("b");
+	ck_assert_str_eq(pop(), "b");
+	ck_assert_str_eq(pop(), "a");
 }
 END_TEST
 
 START_TEST(doesnt_blow_up_when_popping_an_empty_stack)
 {
-	char *value;
-	Stack *stack;
-	initialize_stack(stack);
-	value = pop(stack);
+	initialize_stack();
+	pop();
 }
 END_TEST
 

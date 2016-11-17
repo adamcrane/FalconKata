@@ -5,50 +5,37 @@ struct Node
 {
 	Node *next;
 	char *value;
-};
+}*top;
 
-struct Stack
+void initialize_stack()
 {
-	Node *top;
-};
-
-void initialize_stack(Stack *stack)
-{
-	stack->top = NULL;
+	top = NULL;
 }
 
-void push(Stack *stack, char *value)
+void push(char* value)
 {
 	Node *node;
 	node = (Node *)malloc(sizeof(Node));
-
-	if (node == NULL)
-	{
-		exit(1);
-	}
-
 	node->value = value;
-	node->next = stack->top;
-	stack->top = node;
+	if(top == NULL)
+	{
+		top = node;
+	}
+	else 
+	{
+		node->next = top;
+		top = node;
+	}
 }
 
-char *pop(Stack *stack)
+char *pop()
 {
-	Node *tempNode;
-	char *value;
-
-	if (stack->top == NULL)
+	if(top == NULL)
 	{
-		free(tempNode);
-		free(value);
-		
 		exit(0);
 	}
-
-	tempNode = stack->top;
-	value = tempNode->value;
-	stack->top = tempNode->next;
-	free(tempNode);
-
-	return value;
+	Node *temp;
+	temp = top;
+	top = top->next;
+	return temp->value;
 }

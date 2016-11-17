@@ -2,11 +2,9 @@
 #define STACK_H
 
 typedef struct Node Node;
-typedef struct Stack Stack;
 
-
-void initialize_stack(Stack *stack);
-void push(Stack *stack, char *value);
-char *pop(Stack *stack);
+void initialize_stack();
+void push(char *value);
+char *pop();
 
 #endif /* STACK_H */
