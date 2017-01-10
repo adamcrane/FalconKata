@@ -45,7 +45,7 @@ Suite *make_infix_to_rpn_suite(void)
 	tcase_add_test(tc_core, converts_simple_subtraction);
 	tcase_add_test(tc_core, converts_simple_subtraction_with_addition);
 	tcase_add_test(tc_core, converts_simple_subtraction_with_multiplication);
-	//tcase_add_test(tc_core, handles_parantheses);
+	tcase_add_test(tc_core, handles_parantheses);
 	suite_add_tcase(s, tc_core);
 
 	return s;

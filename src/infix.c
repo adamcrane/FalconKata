@@ -11,7 +11,20 @@ char* convert_to_rpn(char infix[])
 	int i;
 	for(i = 0; infix[i] != '\0'; i++)
 	{
-		if(is_operator(&infix[i]) == 1)
+		if(infix[i] == '(')
+		{
+			push(&infix[i]);
+		}
+		else if(infix[i] == ')')
+		{
+			while(*peek() != '(')
+			{
+				rpn[currentPosition] = *pop();
+				currentPosition++;
+			}
+			pop();
+		}
+		else if(is_operator(&infix[i]) == 1)
 		{
 			while(is_empty() != 1 && has_precedence(&infix[i], peek()) != 1){
 				rpn[currentPosition] = *pop();
