@@ -13,7 +13,7 @@ char* convert_to_rpn(char infix[])
 	{
 		if(is_operator(&infix[i]) == 1)
 		{
-			while(has_precedence(&infix[i], peek())){
+			while(is_empty() != 1 && has_precedence(&infix[i], peek()) != 1){
 				rpn[currentPosition] = *pop();
 				currentPosition++;
 			}
@@ -31,7 +31,6 @@ char* convert_to_rpn(char infix[])
 		rpn[currentPosition] = *pop();
 		currentPosition++;
 	}
-
 	return rpn;
 }
 
@@ -47,9 +46,14 @@ int is_operator(char* character)
 
 int has_precedence(char* candidate, char* top)
 {
-	if(*candidate == '-' || *candidate == '+')
+	if(*top == '*')
 	{
 		return 0;
 	}
-	return 1;
+	if(*candidate == '-' || *candidate == '+' ||
+		*top == '-' || *top == '+')
+	{
+		return 1;
+	}
+	return 0;
 }

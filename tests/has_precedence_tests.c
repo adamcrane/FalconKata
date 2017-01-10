@@ -3,15 +3,15 @@
 #include <stdlib.h>
 #include "../src/infix.h"
 
-START_TEST(plus_does_not_have_precedence_over_minus)
+START_TEST(incoming_candidate_gets_precedence_in_tie)
 {
-	ck_assert_int_eq(has_precedence("+", "-"), 0);
+	ck_assert_int_eq(has_precedence("+", "-"), 1);
 }
 END_TEST
 
-START_TEST(minus_does_not_have_precedence_over_plus)
+START_TEST(incoming_candidate_gets_precedence_in_tie_flipped_params)
 {
-	ck_assert_int_eq(has_precedence("-", "+"), 0);
+	ck_assert_int_eq(has_precedence("-", "+"), 1);
 }
 END_TEST
 
@@ -30,8 +30,8 @@ Suite *make_has_precedence_suite(void)
 
 	tc_core = tcase_create("Core");
 
-	tcase_add_test(tc_core, plus_does_not_have_precedence_over_minus);
-	tcase_add_test(tc_core, minus_does_not_have_precedence_over_plus);
+	tcase_add_test(tc_core, incoming_candidate_gets_precedence_in_tie);
+	tcase_add_test(tc_core, incoming_candidate_gets_precedence_in_tie_flipped_params);
 	tcase_add_test(tc_core, multiply_has_precedence_over_plus);
 	suite_add_tcase(s, tc_core);
 

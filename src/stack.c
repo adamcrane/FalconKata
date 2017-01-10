@@ -42,7 +42,7 @@ char *pop()
 {
 	if(top == NULL)
 	{
-		exit(0);
+		return "";
 	}
 	Node *temp;
 	temp = top;
@@ -54,7 +54,7 @@ char *peek()
 {
 	if(top == NULL)
 	{
-		exit(0);
+		return "";
 	}
 	return top->value;
 }

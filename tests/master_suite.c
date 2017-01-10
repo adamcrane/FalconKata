@@ -9,6 +9,7 @@ int main(void)
 	SRunner *sr;
 
 	sr = srunner_create(make_infix_to_rpn_suite());
+	srunner_set_fork_status(sr, CK_NOFORK);
 	srunner_add_suite(sr, make_stack_building_suite());
 	srunner_add_suite(sr, make_is_operator_suite());
 	srunner_add_suite(sr, make_has_precedence_suite());
