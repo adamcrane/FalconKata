@@ -49,3 +49,12 @@ char *pop()
 	top = top->next;
 	return temp->value;
 }
+
+char *peek()
+{
+	if(top == NULL)
+	{
+		exit(0);
+	}
+	return top->value;
+}
