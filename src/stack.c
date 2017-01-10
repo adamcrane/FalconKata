@@ -48,3 +48,7 @@ char *pop()
 	top = top->next;
 	return temp->value;
 }
+
+void deallocate_stack(){
+	free(top);
+}

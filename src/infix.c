@@ -10,18 +10,20 @@ char* convert_to_rpn(char infix[]){
 	int i;
 	for(i = 0; infix[i] != '\0'; i++){
 
-		while(is_empty() != 1){
-			rpn[currentPosition] = *pop();
-			currentPosition++;
-
-		}
-		if(infix[i] == '+'){
-			push(&infix[i]);
-		}
-		else{
+		if(infix[i] != '+' && infix[i] != '-'){
 			rpn[currentPosition] = infix[i];
 			currentPosition++;
+			continue;
 		}
+
+		push(&infix[i]);
+
 	}
+
+	while(is_empty() != 1){
+		rpn[currentPosition] = *pop();
+		currentPosition++;
+	}
+	deallocate_stack();
 	return rpn;
 }
