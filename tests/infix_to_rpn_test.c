@@ -27,6 +27,18 @@ START_TEST(converts_simple_subtraction_with_multiplication)
 }
 END_TEST
 
+START_TEST(knows_plus_is_operator)
+{
+	ck_assert_int_eq(is_operator("+"), 1);
+}
+END_TEST
+
+START_TEST(knows_minus_is_operator)
+{
+	ck_assert_int_eq(is_operator("-"), 1);
+}
+END_TEST
+
 Suite *make_infix_to_rpn_suite(void)
 {
 	Suite *s;
@@ -40,6 +52,8 @@ Suite *make_infix_to_rpn_suite(void)
 	tcase_add_test(tc_core, converts_simple_subtraction);
 	tcase_add_test(tc_core, converts_simple_subtraction_with_addition);
 	tcase_add_test(tc_core, converts_simple_subtraction_with_multiplication);
+	tcase_add_test(tc_core, knows_plus_is_operator);
+	tcase_add_test(tc_core, knows_minus_is_operator);
 	suite_add_tcase(s, tc_core);
 
 	return s;
