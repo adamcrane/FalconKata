@@ -15,6 +15,12 @@ START_TEST(converts_simple_subtraction)
 }
 END_TEST
 
+START_TEST(converts_simple_subtraction_with_addition)
+{
+	ck_assert_str_eq(convert_to_rpn("a+b-c"), "abc-+");
+}
+END_TEST
+
 Suite *make_infix_to_rpn_suite(void)
 {
 	Suite *s;
@@ -26,6 +32,7 @@ Suite *make_infix_to_rpn_suite(void)
 
 	tcase_add_test(tc_core, converts_simple_addition);
 	tcase_add_test(tc_core, converts_simple_subtraction);
+	tcase_add_test(tc_core, converts_simple_subtraction_with_addition);
 	suite_add_tcase(s, tc_core);
 
 	return s;
