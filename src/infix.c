@@ -19,17 +19,7 @@ char* convert_to_rpn(char infix[])
 		{
 			rpn[currentPosition] = infix[i];
 			currentPosition++;
-		}//if is operator
-			//while(infix[i] has lower precedence than top)
-				//pop and append to rpn
-			//push(infix[i])
-
-		// if(infix[i] != '+' && infix[i] != '-')
-		// {
-
-		// 	continue;
-		// }
-		
+		}
 	}
 
 	while(is_empty() != 1)
@@ -43,7 +33,8 @@ char* convert_to_rpn(char infix[])
 
 int is_operator(char* character)
 {
-	if(*character == '+' || *character == '-')
+	if(*character == '+' || *character == '-'
+	 || *character == '*' || *character == '/')
 	{
 		return 1;
 	}

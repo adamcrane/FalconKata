@@ -5,5 +5,6 @@
 
 Suite *make_infix_to_rpn_suite(void);
 Suite *make_stack_building_suite(void);
+Suite *make_is_operator_suite(void);
 
 #endif /* MASTERSUITE_H */
