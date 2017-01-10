@@ -20,6 +20,7 @@ void push(char* value)
 	if(top == NULL)
 	{
 		top = node;
+		top->next = NULL;
 	}
 	else 
 	{
@@ -47,8 +48,4 @@ char *pop()
 	temp = top;
 	top = top->next;
 	return temp->value;
-}
-
-void deallocate_stack(){
-	free(top);
 }

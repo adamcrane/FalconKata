@@ -15,15 +15,13 @@ char* convert_to_rpn(char infix[]){
 			currentPosition++;
 			continue;
 		}
-
 		push(&infix[i]);
-
 	}
 
 	while(is_empty() != 1){
 		rpn[currentPosition] = *pop();
 		currentPosition++;
 	}
-	deallocate_stack();
+
 	return rpn;
 }
