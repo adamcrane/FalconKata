@@ -1,29 +1,27 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "infix.h"
+#include "stack.h"
 
-struct Infix
-{
-	char *representation;
-};
+char* convert_to_rpn(char infix[]){
+	initialize_stack();
+	char* rpn = (char *)malloc(sizeof(infix));
+	int currentPosition = 0;
+	int i;
+	for(i = 0; infix[i] != '\0'; i++){
 
-Infix *init_with_infix_string(char *infix_string)
-{
-	Infix *I = malloc(sizeof(Infix));
+		while(is_empty() != 1){
+			rpn[currentPosition] = *pop();
+			currentPosition++;
 
-	if (I == NULL)
-	{
-		return NULL;
+		}
+		if(infix[i] == '+'){
+			push(&infix[i]);
+		}
+		else{
+			rpn[currentPosition] = infix[i];
+			currentPosition++;
+		}
 	}
-
-	I->representation = infix_string;
-	return I;
-}
-
-char *convert_to_rpn(Infix *infix){
-	for(int i = 0; infix->representation[i] != '\0'; i++)
-	{
-
-	}
-
-	return "ab+";
+	return rpn;
 }

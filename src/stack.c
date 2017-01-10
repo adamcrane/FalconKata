@@ -28,6 +28,15 @@ void push(char* value)
 	}
 }
 
+int is_empty()
+{
+	if(top == NULL)
+	{
+		return 1;
+	}
+	return 0;
+}
+
 char *pop()
 {
 	if(top == NULL)

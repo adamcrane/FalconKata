@@ -5,17 +5,13 @@
 
 START_TEST(converts_simple_addition)
 {
-	Infix * infix;
-	infix = init_with_infix_string("a+b");
-	ck_assert_str_eq(convert_to_rpn(infix), "ab+");
+	ck_assert_str_eq(convert_to_rpn("a+b"), "ab+");
 }
 END_TEST
 
 START_TEST(converts_simple_subtraction)
 {
-	Infix * infix;
-	infix = init_with_infix_string("a-b");
-	ck_assert_str_eq(convert_to_rpn(infix), "ab-");
+	ck_assert_str_eq(convert_to_rpn("a-b"), "ab-");
 }
 END_TEST
 
